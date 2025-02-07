@@ -1,0 +1,121 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(#27445d, #efe9d5);
+  /* color: white; */
+  /* position: relative; */
+}
+
+.container {
+  width: 800px;
+  height: 180px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.clock {
+  width: 100%;
+  height: 100%;
+  background: rgba(239, 233, 213, 0.35);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(40px);
+}
+
+.container::before {
+  content: "";
+  width: 180px;
+  height: 180px;
+  background: #efe9d5;
+  border-radius: 5px;
+  position: absolute;
+  left: -75px;
+  top: -75px;
+  z-index: -1;
+  animation: squareAnimation 5s ease-in-out 0s infinite forwards;
+}
+.container::after {
+  content: "";
+  width: 180px;
+  height: 180px;
+  background: #27445d;
+  border-radius: 50%;
+  position: absolute;
+  right: -75px;
+  bottom: -75px;
+  z-index: -1;
+  animation: circleAnimation 5s ease-in-out 0s infinite forwards;
+}
+#timer {
+  font-size: 7rem;
+  color: #27445d;
+  text-shadow: 2px 2px 2px rgba(73, 125, 116, 0.65);
+}
+#hours::after {
+  font-size: 1rem;
+  content: "HOURS";
+}
+#minutes::after {
+  font-size: 1rem;
+  content: "MINUTES";
+}
+#seconds::after {
+  font-size: 1rem;
+  content: "SECONDS";
+}
+
+@keyframes circleAnimation {
+  0% {
+    right: -75px;
+    bottom: -75px;
+  }
+  25% {
+    right: -75px;
+    bottom: 75px;
+  }
+  50% {
+    right: 695px;
+    bottom: 75px;
+    background: #efe9d5;
+  }
+  75% {
+    right: 695px;
+    bottom: -75px;
+  }
+  100% {
+    right: -75px;
+    bottom: -75px;
+  }
+}
+@keyframes squareAnimation {
+  0% {
+    left: -75px;
+    top: -75px;
+  }
+  25% {
+    left: -75px;
+    top: 75px;
+  }
+  50% {
+    left: 695px;
+    top: 75px;
+    background: #27445d;
+  }
+  75% {
+    left: 695px;
+    top: -75px;
+  }
+  100% {
+    left: -75px;
+    top: -75px;
+  }
+}
